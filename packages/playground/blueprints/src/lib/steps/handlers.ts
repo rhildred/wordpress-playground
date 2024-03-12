@@ -22,6 +22,7 @@ export { installPlugin } from './install-plugin';
 export { installTheme } from './install-theme';
 export { login } from './login';
 export { runWpInstallationWizard } from './run-wp-installation-wizard';
+export { waitOnRepo } from './wait-on-repo';
 export { setSiteOptions, updateUserMeta } from './site-data';
 export { defineWpConfigConsts } from './define-wp-config-consts';
 export { zipWpContent } from './zip-wp-content';
