@@ -11,7 +11,35 @@
 				},
 				"description": {
 					"type": "string",
-					"description": "Optional description. It doesn't do anything but is exposed as a courtesy to developers who may want to document which blueprint file does what."
+					"description": "Optional description. It doesn't do anything but is exposed as a courtesy to developers who may want to document which blueprint file does what.",
+					"deprecated": "Use meta.description instead."
+				},
+				"meta": {
+					"type": "object",
+					"properties": {
+						"title": {
+							"type": "string",
+							"description": "A clear and concise name for your Blueprint."
+						},
+						"description": {
+							"type": "string",
+							"description": "A brief explanation of what your Blueprint offers."
+						},
+						"author": {
+							"type": "string",
+							"description": "A GitHub username of the author of this Blueprint."
+						},
+						"categories": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							},
+							"description": "Relevant categories to help users find your Blueprint in the future Blueprints section on WordPress.org."
+						}
+					},
+					"required": ["title", "author"],
+					"additionalProperties": false,
+					"description": "Optional metadata. Used by the Blueprints gallery at https://github.com/WordPress/blueprints"
 				},
 				"preferredVersions": {
 					"type": "object",
