@@ -11,7 +11,6 @@ import {
 	broadcastMessageExpectReply,
 	getRequestHeaders,
 } from '@php-wasm/web-service-worker';
-import * as cheerio from 'cheerio';
 
 async function convertFetchEventToPHPRequest(event: any) {
 	const fullUrl = new URL(event.request.url);
