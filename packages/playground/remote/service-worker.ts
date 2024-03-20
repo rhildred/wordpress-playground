@@ -19,22 +19,13 @@ async function convertFetchEventToPHPRequest(event: any) {
 	const res: any = await convertFetchEvent(event);
 	const contentType: string = res.headers.get('content-type');
 	if (contentType?.match(/text\/html/)) {
-		const body: string = await res.text();
-		const $ = cheerio.load(body);
-		const aHrefs = $('a');
-		for (const anchor of aHrefs) {
-			let href = anchor.attribs['href'];
-			if (
-				href?.match(
-					/(localhost|127.0.0.1|playground\.wordpress\.net|diy-pwa\.com)/
-				)
-			) {
-				href = href?.replace(/(http|https):[\/\\]+[.\-a-zA-Z:\d]*/, '');
-				href = href?.replace(/scope:0.\d*/, `scope:${scope}`);
-				anchor.attribs['href'] = href;
-			}
-		}
-		const resNew = new Response($.html(), res);
+		const canonical: string = await res.text();
+		let relative = canonical.replace(
+			/(http|https):[\/\\]+(localhost|127.0.0.1|playground\.wordpress\.net|diy-pwa\.com)[:0-9]*\/scope:\d.\d*/g,
+			`/scope:${scope}`
+		);
+		relative = relative.replace(/http:/g, 'https:');
+		const resNew = new Response(relative, res);
 		return resNew;
 	} else {
 		return res;
