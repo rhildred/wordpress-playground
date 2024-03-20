@@ -10,7 +10,6 @@ import {
 	RunWpInstallationWizardStep,
 	WordPressInstallationOptions,
 } from './run-wp-installation-wizard';
-import { WaitOnRepoStep } from './wait-on-repo';
 import { SetSiteOptionsStep, UpdateUserMetaStep } from './site-data';
 import { RmStep } from './rm';
 import { CpStep } from './cp';
@@ -65,7 +64,6 @@ export type GenericStep<Resource> =
 	| RunPHPStep
 	| RunPHPWithOptionsStep
 	| RunWpInstallationWizardStep
-	| WaitOnRepoStep
 	| RunSqlStep<Resource>
 	| SetPhpIniEntryStep
 	| SetSiteOptionsStep
@@ -96,7 +94,6 @@ export type {
 	RunPHPStep,
 	RunPHPWithOptionsStep,
 	RunWpInstallationWizardStep,
-	WaitOnRepoStep,
 	RunSqlStep,
 	WordPressInstallationOptions,
 	SetPhpIniEntryStep,
