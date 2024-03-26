@@ -1,6 +1,6 @@
 {
 	"name": "wp-playground",
-	"version": "0.0.0",
+	"version": "0.0.3",
 	"license": "GPL-2.0-or-later",
 	"scripts": {
 		"build": "nx run-many --all --target=build",
